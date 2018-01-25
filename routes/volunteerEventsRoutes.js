@@ -7,7 +7,20 @@ module.exports = app => {
     res.send('woo, events!');
   });
 
-  app.get('/api/post/event', (req, res) => {
+  app.post('/api/post/event', async (req, res) => {
+    const { title, hostName, hostEmail, location, description } = req.query;
+    const dateOfEvent = new Date(req.query.dateOfEvent);
+    const dateSubmitted = new Date();
+    const event = new Event({
+      title,
+      hostName,
+      hostEmail,
+      location,
+      description,
+      dateOfEvent,
+      dateSubmitted
+    });
+    const saved = await event.save();
     res.send('Made event!');
   });
 };
