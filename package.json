@@ -1,0 +1,31 @@
+{
+  "name": "volunteering",
+  "version": "0.2.0",
+  "description": "A volunteering website for RPI",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "server": "nodemon index.js",
+    "client": "npm run start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wtg/Volunteering.git"
+  },
+  "author": "Michael, Richard, Webtech",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wtg/Volunteering/issues"
+  },
+  "homepage": "https://github.com/wtg/Volunteering#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "concurrently": "^3.5.1",
+    "cookie-session": "^2.0.0-beta.3",
+    "express": "^4.16.2",
+    "materialize-css": "^0.100.2",
+    "mongoose": "^5.0.1",
+    "nodemon": "^1.14.11"
+  }
+}
