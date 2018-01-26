@@ -3,8 +3,14 @@ const mongoose = require('mongoose');
 const Event = mongoose.model('events');
 
 module.exports = app => {
-  app.get('/api/get/all', (req, res) => {
-    res.send('woo, events!');
+  app.get('/api/get/all', async (req, res) => {
+    const allEvents = await Event.find({});
+    res.send(allEvents);
+  });
+
+  app.get('/api/get/all_active', async (req, res) => {
+    const allEvents = await Event.find({ dateOfEvent: { $gt: new Date() } });
+    res.send(allEvents);
   });
 
   app.post('/api/post/event', async (req, res) => {
