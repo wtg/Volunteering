@@ -8,7 +8,9 @@ const eventSchema = new Schema({
   location: String,
   description: String,
   dateOfEvent: Date,
-  dateSubmitted: Date
+  dateSubmitted: Date,
+  approved: { type: Boolean, default: false },
+  terms: [String]
 });
 
 mongoose.model('events', eventSchema);
