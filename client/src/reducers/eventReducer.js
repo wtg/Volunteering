@@ -1,10 +1,9 @@
-import { FETCH_EVENTS } from '../actions/types';
+import { FETCH_EVENT } from '../actions/types';
 
 export default function(state = null, action) {
-  console.log(action);
   switch (action.type) {
-    case FETCH_EVENTS:
-      return action.payload || false;
+    case FETCH_EVENT:
+      return action.events || false;
     default:
       return state;
   }

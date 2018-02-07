@@ -32,6 +32,11 @@ module.exports = app => {
     res.send(allEvents);
   });
 
+  app.get('/api/get/select', async (req, res) => {
+    const event = await Event.find({ _id: req.query.id });
+    res.send(event);
+  });
+
   app.get('/api/get/search', async (req, res) => {
     const searchTerms = isString(req.query.term)
       ? [req.query.term]

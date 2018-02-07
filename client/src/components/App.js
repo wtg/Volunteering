@@ -6,19 +6,27 @@ import * as actions from '../actions';
 
 import Footer from './Footer';
 import Header from './Header';
+import Events from './Events';
+import EventDetails from './EventDetails';
 
-const Landing = () => <div>Events will be displayed here</div>;
+// const events = [0, 1, 2, 3];
+
 const Submit = () => <div>Submit</div>;
 
 class App extends Component {
+  componentDidMount() {
+    this.props.fetchEvents();
+  }
+
   render() {
     return (
       <div className="container">
         <BrowserRouter>
           <div>
             <Header />
-            <Route exact path="/" component={Landing} />
+            <Route exact path="/" component={Events} />
             <Route path="/submit" component={Submit} />
+            <Route path={`/event/:id`} component={EventDetails} />
             <Footer />
           </div>
         </BrowserRouter>
